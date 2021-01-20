@@ -53,7 +53,11 @@ def load_wav_to_torch(full_path):
     """
     Loads wavdata into torch array
     """
-    sampling_rate, data = read(full_path)
+    # print("hi----------------",full_path)
+    x = full_path
+    a, b = x.index('data'), x.index('.wav')
+    # print(x[a:b-len(x)+4])
+    sampling_rate, data = read(x[a:b-len(x)+4])
     return torch.from_numpy(data).float(), sampling_rate
 
 
